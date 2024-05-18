@@ -12,10 +12,9 @@ public class Cliente extends Usuario {
 		super();
                 setOrganizador(false);
 	}
-	public Cliente(String nome, String email, String senha,
-			ArrayList<Ingresso> ingressosComprados) {
+	public Cliente(String nome, String email, String senha, String dataNascimento) {
 		super(nome, email, senha, false);
-		this.ingressosComprados = ingressosComprados;
+                this.setDataNascimento(dataNascimento);
 	}
 	public Cliente(String nome, String email, String senha) {
 		super(nome, email, senha, false);

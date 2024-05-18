@@ -151,9 +151,11 @@ public class FrmLogin extends JFrame implements ActionListener {
                     } else if(this.tipoUsuario.equals("Organizador") && u.isOrganizador()){
                         AppEventos.abreEventosO(this);
                     }
-
+                    else{
+                        JOptionPane.showMessageDialog(null, "Usuário não pode fazer login nesta categoria");
+                    }
                 } else {
-                    //Login inválido
+                    JOptionPane.showMessageDialog(null, "Não foi possível autenticar");
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.");

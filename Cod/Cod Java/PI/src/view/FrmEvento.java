@@ -12,35 +12,41 @@ public class FrmEvento extends JFrame implements ActionListener {
     private Evento evento;
 	// Visualiza um Evento Selecionado
 	public FrmEvento(Evento evento) {
-
-		initFrame();
-		JLabel lblEv = new JLabel(evento.toString());
-		lblEv.setLocation(20, 20);
-		lblEv.setSize(500,50);
-        add(lblEv);
+        initFrame();
+	int y = 200, x = vw(0.05), x2 = vw(0.22), centerX = getWidth() / 2, centerY = getHeight() / 2;
 
         setVisible(true);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
-
-    /**
-     * Retorna porcentagem da largura da tela
-     * @param value valor de 0 a 1 representando a porcentagem, 0.6 = 60%, 0.25 = 25%
-     * @return Porcentagem da largura do frame
-     */
+    public JButton criarButton(String text, int x, int y) {
+        JButton btn = new JButton(text);
+        btn.setLocation(x, y);
+        btn.setSize(140, 50);
+        btn.setFont(new Font("Helvetica", Font.BOLD, 18));
+        add(btn);
+        btn.addActionListener(this);
+        return btn;
+    }
+    public JLabel criarLabel(String text, int x, int y) {
+        JLabel lbl = new JLabel(text);
+        lbl.setSize(vw(0.15), 60);
+        lbl.setLocation(x, y);
+        lbl.setForeground(Color.BLACK);
+        lbl.setFont(new Font("Helvetica", Font.BOLD, 18));
+        lbl.setHorizontalAlignment(SwingConstants.LEFT);
+        lbl.setVerticalAlignment(SwingConstants.CENTER);
+        add(lbl);
+        return lbl;
+    }
     private int vw(double value){
         return (int)(getWidth()*value);
     }
-    /**
-     * Retorna porcentagem da altura da tela
-     * @param value valor de 0 a 1 representando a porcentagem, 0.6 = 60%, 0.25 = 25%
-     * @return Porcentagem da altura do frame
-     */
+
     private int vh(double value){
         return (int)(getHeight()*value);
     }

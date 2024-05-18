@@ -93,7 +93,10 @@ public class FrmCadastro extends JFrame implements ActionListener {
         add(txt);
         txt.addKeyListener(new KeyAdapter() {
             public void keyReleased(KeyEvent e) {
- 
+                JTextField tf = (JTextField) e.getSource();
+                String txt = tf.getText();
+                if(tf == txtNasc && (txt.length() == 2 || txt.length() == 5))
+                    tf.setText(txt + "/");
             }
 
             public void keyTyped(KeyEvent e) {
@@ -103,6 +106,7 @@ public class FrmCadastro extends JFrame implements ActionListener {
                 if(tf == txtNome && txt.length() > 59 ||
                 		tf == txtMail && txt.length() > 69 || tf == txtNasc && txt.length() > 9)
                 	tf.setText(txt.substring(0, txt.length()-1));
+
             }
 
             public void keyPressed(KeyEvent e) {
@@ -192,18 +196,19 @@ public class FrmCadastro extends JFrame implements ActionListener {
             AppEventos.abreLogin(this, tipoUsuario);
         }
         if (e.getSource() == btnSignUp) {
-    		//cadastro como cliente
     		String nome = txtNome.getText();
     		String email = txtMail.getText();
     		String senha = String.valueOf(pwdPass.getPassword());
-                String dataNascimento = txtNasc.getText();
-    		boolean organizador = tipoUsuario.equals("Organizador");
+                boolean organizador = tipoUsuario.equals("Organizador");
+                String dataNascimento = "";
+                if(!organizador)
+                    dataNascimento = txtNasc.getText();
         	if(UsuarioController.fazerCadastro(nome, email, senha, organizador, dataNascimento)) {
                     JOptionPane.showMessageDialog(null,"Cadastrado com sucesso");
                     AppEventos.abreLogin(this, tipoUsuario);
         	}
         	else{
-                    JOptionPane.showMessageDialog(null,"Erro ao fazer cadastro");
+                    JOptionPane.showMessageDialog(null,"Falha ao realizar o cadastro");
         	}
         }
 
