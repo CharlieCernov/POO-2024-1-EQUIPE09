@@ -129,13 +129,13 @@ public class FrmListagemEventosO extends JFrame implements ActionListener {
         panel.setMaximumSize(new Dimension(vw(0.9), 160));
         return panel;
     }
-
-    private int vw(double value) {
-        return (int) (getWidth() * value);
-    }
     private void reloadFrame(){
         AppEventos.abreEventosO(this);
     }
+    private int vw(double value) {
+        return (int) (getWidth() * value);
+    }
+
     private int vh(double value) {
         return (int) (getHeight() * value);
     }

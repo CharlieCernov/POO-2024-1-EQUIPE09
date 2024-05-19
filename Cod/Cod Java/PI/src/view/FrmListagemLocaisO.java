@@ -1,4 +1,5 @@
 package view;
+
 import javax.swing.*;
 
 import controller.*;
@@ -7,14 +8,17 @@ import model.beans.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.awt.*;
+
 public class FrmListagemLocaisO extends JFrame implements ActionListener {
+
     private JPanel panelPrincipal, panelTop;
     private JScrollPane scroll;
     private JButton btnNovoLc, btnIrEv;
     private Container c;
     private Dimension screen;
-	public FrmListagemLocaisO() {
-		initFrame();
+
+    public FrmListagemLocaisO() {
+        initFrame();
         panelPrincipal = criarPanel();
         carregarLocais();
 
@@ -30,9 +34,10 @@ public class FrmListagemLocaisO extends JFrame implements ActionListener {
         scroll = criarScrollPane(panelPrincipal);
 
         setVisible(true);
-	}
-	private void carregarLocais() {
-		ArrayList<LocalDeEvento> locais = LocalDeEventoController.getListaLocais();
+    }
+
+    private void carregarLocais() {
+        ArrayList<LocalDeEvento> locais = LocalDeEventoController.getListaLocais();
         for (LocalDeEvento local : locais) {
             JPanel itemLista = criarItemLista(local);
             panelPrincipal.add(itemLista);
@@ -68,13 +73,13 @@ public class FrmListagemLocaisO extends JFrame implements ActionListener {
 
         JButton btnEditarLocal, btnExcluirLocal;
         JLabel nomeLocal = new JLabel(lc.getNome());
-        JLabel logradouro = new JLabel(lc.getLogradouro()+", "+lc.getNumero());
-        JLabel capacidade = new JLabel("Capacidade: "+Integer.toString(lc.getCapacidade()));
+        JLabel logradouro = new JLabel(lc.getLogradouro() + ", " + lc.getNumero());
+        JLabel capacidade = new JLabel("Capacidade: " + Integer.toString(lc.getCapacidade()));
         nomeLocal.setFont(new Font("Helvetica", Font.BOLD, 24));
         nomeLocal.setHorizontalAlignment(SwingConstants.CENTER);
         logradouro.setHorizontalAlignment(SwingConstants.CENTER);
         capacidade.setHorizontalAlignment(SwingConstants.CENTER);
-        
+
         btnEditarLocal = new JButton("Editar");
         btnEditarLocal.addActionListener(new ActionListener() {
 
@@ -89,12 +94,12 @@ public class FrmListagemLocaisO extends JFrame implements ActionListener {
         btnExcluirLocal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-                
-                if(JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover o local "+lc.getNome()+"?",null, JOptionPane.YES_NO_OPTION) == 0){
-                	LocalDeEvento lcExcluido = LocalDeEventoController.excluiLocal(lc.getId());
-                	revalidate();
+
+                if (JOptionPane.showConfirmDialog(null, "Tem certeza que deseja remover o local " + lc.getNome() + "?", null, JOptionPane.YES_NO_OPTION) == 0) {
+                    LocalDeEvento lcExcluido = LocalDeEventoController.excluiLocal(lc);
+                    reloadFrame();
                 }
-                
+
             }
         });
         panel.add(nomeLocal);
@@ -115,33 +120,42 @@ public class FrmListagemLocaisO extends JFrame implements ActionListener {
         panel.setMaximumSize(new Dimension(vw(0.9), 160));
         return panel;
     }
+    private void reloadFrame(){
+        AppEventos.abreLocais(this);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnIrEv) {
+            AppEventos.abreEventosO(this);
+        }
+        if (e.getSource() == btnNovoLc) {
+            AppEventos.abreCadLocal(this);
+        }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btnIrEv) {
-			AppEventos.abreEventosO(this);
-		}
-		if(e.getSource() == btnNovoLc) {
-			AppEventos.abreCadLocal(this);
-		}
+    }
 
-	}
     /**
      * Retorna porcentagem da largura da tela
-     * @param value valor de 0 a 1 representando a porcentagem, 0.6 = 60%, 0.25 = 25%
+     *
+     * @param value valor de 0 a 1 representando a porcentagem, 0.6 = 60%, 0.25
+     * = 25%
      * @return Porcentagem da largura do frame
      */
-    private int vw(double value){
-        return (int)(getWidth()*value);
+    private int vw(double value) {
+        return (int) (getWidth() * value);
     }
+
     /**
      * Retorna porcentagem da altura da tela
-     * @param value valor de 0 a 1 representando a porcentagem, 0.6 = 60%, 0.25 = 25%
+     *
+     * @param value valor de 0 a 1 representando a porcentagem, 0.6 = 60%, 0.25
+     * = 25%
      * @return Porcentagem da altura do frame
      */
-    private int vh(double value){
-        return (int)(getHeight()*value);
+    private int vh(double value) {
+        return (int) (getHeight() * value);
     }
+
     public void initFrame() {
         c = getContentPane();
         screen = Toolkit.getDefaultToolkit().getScreenSize();

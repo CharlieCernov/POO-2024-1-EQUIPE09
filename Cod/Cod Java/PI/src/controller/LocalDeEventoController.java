@@ -12,18 +12,11 @@ public class LocalDeEventoController {
     }
 
     public static ArrayList<LocalDeEvento> getListaLocais() {
-        ArrayList<LocalDeEvento> locais = new ArrayList<>();
-        LocalDeEvento lc = new LocalDeEvento("Parque X", "Rua Conde Alberto", "09430-478", "f32", 5000, 0, 0);
-        lc.setId(1);
-        locais.add(lc);
-        lc = new LocalDeEvento("Circo", "Rua Pedro Alvaro", "06730-478", "201", 3000, 0, 0);
-        lc.setId(2);
-        locais.add(lc);
-        return locais;
+        return LocalDeEventoDAO.buscarLocais();
     }
 
-    public static LocalDeEvento excluiLocal(int id) {
-        return LocalDeEventoDAO.removerLocal(id);
+    public static LocalDeEvento excluiLocal(LocalDeEvento lc) {
+        return LocalDeEventoDAO.removerLocal(lc);
     }
 
     public static boolean addLocal(String nome, String logradouro, String cep, String numero, int capacidade, int fileiras, int colunas) {

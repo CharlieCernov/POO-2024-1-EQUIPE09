@@ -38,20 +38,43 @@ public class EventoDAO {
     }
 
     public static boolean alterarEvento(Evento evento) {
-        return true;
+        try {
+            conexao.openDB();
+            PreparedStatement pstmt = conexao.con.prepareStatement(
+                    "UPDATE evento SET nome = ?, idadeMin = ?, duracao = ?, "
+                    + "dataInicio = ?, dataFim = ?, horaInicio = ?, horaFim = ?, valorIngresso = ?, id_localdeevento = ? WHERE id = ?");
+
+            pstmt.setString(1, evento.getNomeEvento());
+            pstmt.setInt(2, evento.getIdadeMin());
+            pstmt.setString(3, evento.getDuracao());
+            pstmt.setString(4, evento.getDataInicio());
+            pstmt.setString(5, evento.getDataFim());
+            pstmt.setString(6, evento.getHoraInicio());
+            pstmt.setString(7, evento.getHoraFim());
+            pstmt.setFloat(8, evento.getValorIngresso());
+            pstmt.setInt(9, evento.getId());//ID do local de evento
+            pstmt.setInt(10, evento.getEId());//ID do evento em si
+
+            pstmt.execute();
+            conexao.closeDB();
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Falha ao atualizar evento\n" + e);
+            return false;
+        }
     }
 
     public static Evento removerEvento(Evento e) {
-        try{
+        try {
             conexao.openDB();
             PreparedStatement pstmt = conexao.con.prepareStatement("delete from evento where id = ?");
             pstmt.setInt(1, e.getEId());
             pstmt.execute();
             conexao.closeDB();
             return e;
-        }
-        catch(SQLException ex){
-            System.out.println("Falha ao deletar evento\n" + ex);         
+        } catch (SQLException ex) {
+            System.out.println("Falha ao deletar evento\n" + ex);
         }
         return null;
     }

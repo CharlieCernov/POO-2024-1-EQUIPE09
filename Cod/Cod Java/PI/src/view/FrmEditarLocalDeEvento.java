@@ -16,6 +16,7 @@ public class FrmEditarLocalDeEvento extends JFrame implements ActionListener {
     private JTextField txtNome, txtLogradouro, txtCep, txtNum, txtCapacidade, txtCol, txtFil;
     private JButton btnEditar, btnCancelar;
     private LocalDeEvento local;
+
     public FrmEditarLocalDeEvento(LocalDeEvento local) {
         initFrame();
         this.local = local;
@@ -45,7 +46,8 @@ public class FrmEditarLocalDeEvento extends JFrame implements ActionListener {
         inicializarValores();
         setVisible(true);
     }
-    private void inicializarValores(){
+
+    private void inicializarValores() {
         txtNome.setText(local.getNome());
         txtNum.setText(local.getNumero());
         txtLogradouro.setText(local.getLogradouro());
@@ -53,10 +55,12 @@ public class FrmEditarLocalDeEvento extends JFrame implements ActionListener {
         txtCapacidade.setText(Integer.toString(local.getCapacidade()));
         txtFil.setText(Integer.toString(local.getFileiras()));
         txtCol.setText(Integer.toString(local.getColunas()));
-        if(local.getFileiras() > 0 || local.getColunas() > 0)
+        if (local.getFileiras() > 0 || local.getColunas() > 0) {
             chkTemAssentos.setSelected(true);
+        }
 
     }
+
     public JLabel criarLabel(String text, int x, int y) {
         JLabel lbl = new JLabel(text);
         lbl.setSize(vw(0.13), 60);
@@ -133,7 +137,11 @@ public class FrmEditarLocalDeEvento extends JFrame implements ActionListener {
                 col = Integer.parseInt(txtCol.getText());
                 fil = Integer.parseInt(txtFil.getText());
             }
-            LocalDeEventoController.updLocal(local.getId(), nome, logradouro, cep, num, capacidade, fil, col);
+            if(LocalDeEventoController.updLocal(local.getId(), nome, logradouro, cep, num, capacidade, fil, col)){
+                AppEventos.abreLocais(this);
+            }else{
+                JOptionPane.showMessageDialog(null,"Falha ao alterar local de evento");
+            }
         }
         if (e.getSource() == btnCancelar) {
             AppEventos.abreLocais(this);

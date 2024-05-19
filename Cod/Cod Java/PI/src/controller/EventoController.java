@@ -8,11 +8,22 @@ import model.dao.*;
 public class EventoController {
 
     public EventoController() {
-        // TODO Auto-generated constructor stub
     }
 
     public static ArrayList<Evento> getListaEventos() {
-        return EventoDAO.buscarEventos();
+        ArrayList<Evento> eventos = EventoDAO.buscarEventos();
+        for(Evento e: eventos){ //Carrega informações do local do evento no objeto de evento
+            LocalDeEvento lc = LocalDeEventoController.getLocal(e.getId());
+            e.setNome(lc.getNome());
+            e.setAssentos(lc.getAssentos());
+            e.setFileiras(lc.getFileiras());
+            e.setColunas(lc.getColunas());
+            e.setNumero(lc.getNumero());
+            e.setLogradouro(lc.getLogradouro());
+            e.setCEP(lc.getCEP());
+            e.setCapacidade(lc.getCapacidade());
+        }
+        return eventos;
     }
 
     public static Evento excluirEvento(Evento e) {

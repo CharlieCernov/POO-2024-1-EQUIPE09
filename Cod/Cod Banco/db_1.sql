@@ -201,8 +201,8 @@ values (
         "Expo Arte Moderna",
         14,
         "10 horas",
-        "2024-05-20",
-        "2024-05-20",
+        "20/05/2024",
+        "20/05/2024",
         "09:00",
         "19:00",
         40.00,
@@ -212,8 +212,8 @@ values (
         "Apresentação de Balé",
         0,
         "4 horas",
-        "2024-05-18",
-        "2024-05-18",
+        "18/05/2024",
+        "18/05/2024",
         "10:00",
         "14:00",
         5.00,
@@ -229,35 +229,6 @@ insert into
         id_assento
     )
 values (0, 2, 5),
-    (0, 2, 6),
-    (0, 2, 7),
-    (0, 2, 8);
-
--- cadastro de venda
-insert into
-    venda (
-        valor,
-        dataCompra,
-        dataPagamento,
-        id_evento,
-        id_cliente,
-        id_ingresso
-    )
-values (
-        5.00,
-        "2024-05-15",
-        "2024-05-15",
-        1,
-        1,
-        2
-    );
-
-update ingresso set comprado = 1 where id = 2;
-
-select * from localdeevento;
-
-select * from evento;
-
-select * from usuario;
-
-select * from organizador;
+    (1, 2, 6),
+    (1, 2, 7),
+    (1, 2, 8);

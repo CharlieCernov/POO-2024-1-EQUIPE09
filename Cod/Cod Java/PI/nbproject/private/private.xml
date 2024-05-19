@@ -5,10 +5,12 @@
         <group>
             <file>file:/D:/Projetos/NetBeans/PI/src/controller/IngressoController.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmCadastro.java</file>
+            <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmListagemEventosO.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/beans/Usuario.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/beans/Cliente.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/controller/OrganizadorController.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/dao/Conexao.java</file>
+            <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmCadastroLocalDeEvento.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/controller/EventoController.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/controller/UsuarioController.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmCadastroEvento.java</file>
@@ -22,11 +24,13 @@
             <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmEditarEvento.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/beans/Organizador.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmEvento.java</file>
+            <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmEditarLocalDeEvento.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/controller/AppEventos.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/dao/EventoDAO.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/controller/LocalDeEventoController.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/dao/LocalDeEventoDAO.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/view/Componentes.java</file>
+            <file>file:/D:/Projetos/NetBeans/PI/src/view/FrmListagemLocaisO.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/dao/OrganizadorDAO.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/dao/IngressoDAO.java</file>
             <file>file:/D:/Projetos/NetBeans/PI/src/model/dao/ClienteDAO.java</file>
