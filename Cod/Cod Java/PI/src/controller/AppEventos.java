@@ -73,9 +73,9 @@ public class AppEventos {
         return new FrmPerfil();
     }
 
-    public static JFrame abreCompra(JFrame janelaAtual) {
+    public static JFrame abreCompra(JFrame janelaAtual, Evento e) {
         janelaAtual.setVisible(false);
-        return new FrmCompra();
+        return new FrmCompra(e);
     }
 
 }
