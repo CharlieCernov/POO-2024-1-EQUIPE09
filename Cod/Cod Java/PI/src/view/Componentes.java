@@ -53,7 +53,7 @@ public abstract class Componentes extends JFrame implements ActionListener {
     }
 
     /**
-     * Cria uma JTextField padrão com largura 800 e altura 50 com tratamento de
+     * Cria uma JTextField padrão com largura 73% do tamanho da janela e altura 50 com tratamento de
      * input
      *
      * @param x Posição X
@@ -86,7 +86,7 @@ public abstract class Componentes extends JFrame implements ActionListener {
     }
 
     /**
-     * Cria um JPasswordField padrão com mesmo tamanho da JTextField, 800 de
+     * Cria um JPasswordField padrão com mesmo tamanho da JTextField, 73% do tamanho da janela de
      * largura e 50 de altura, Possui tratamento de input
      *
      * @param x Posição X
@@ -216,7 +216,7 @@ public abstract class Componentes extends JFrame implements ActionListener {
     }
 
     /**
-     * Cria uma JComboBox padrão com largura 400 e altura 50
+     * Cria uma JComboBox padrão com largura de 40% da janela e altura 50
      *
      * @param dados Lista de dados da combobox
      * @param x Posição X

@@ -11,7 +11,7 @@ public class IngressoDAO {
     public IngressoDAO() {
         // TODO Auto-generated constructor stub
     }
-
+    
     public static boolean cadastrarIngressoSemAssento(Ingresso ingresso) {
         try {
             conexao.openDB();
@@ -20,11 +20,12 @@ public class IngressoDAO {
 
             pstmt.executeUpdate();
             conexao.closeDB();
+            return true;
         } catch (SQLException e) {
             System.out.println("Falha ao inserir ingresso\n" + e);
             return false;
         }
-        return true;
+        
     }
     public static boolean cadastrarIngressoComAssento(Ingresso ingresso, int idAssento) {
         try {

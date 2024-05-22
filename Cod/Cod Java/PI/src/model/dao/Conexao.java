@@ -18,7 +18,7 @@ public class Conexao {
 
     private final static String url = "jdbc:mysql://localhost:3306/empresadeeventos";//URL do banco de dados
     private final static String username = "root"; // usuário do db
-    private final static String password = "root"; // senha do db
+    private final static String password = ""; // senha do db
 
     public Connection con;
 

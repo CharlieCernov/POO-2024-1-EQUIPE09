@@ -30,16 +30,27 @@ public class Cliente extends Usuario {
 		return dataNascimento;
 	}
 	public void setDataNascimento(String dataNascimento) {
-            String[] data = dataNascimento.split("/");
-            int dia = Integer.parseInt(data[0]);
-            int mes = Integer.parseInt(data[1]);
-            int ano = Integer.parseInt(data[2]);
+            String[] data;
+            int dia;
+            int mes;
+            int ano;
+            if(dataNascimento.contains("-")){
+                data = dataNascimento.split("-");
+                dia = Integer.parseInt(data[2]);
+                mes = Integer.parseInt(data[1]);
+                ano = Integer.parseInt(data[0]);
+            }else{
+                data = dataNascimento.split("/");
+                dia = Integer.parseInt(data[0]);
+                mes = Integer.parseInt(data[1]);
+                ano = Integer.parseInt(data[2]);
+            }
             this.dataNascimento = LocalDate.of(ano, mes, dia);
 	}
 	public int getIdade() {
 		int idade = -1;
 		if(this.dataNascimento != null) {
-			idade = Period.between(dataNascimento, LocalDate.now()).getYears();
+                    idade = Period.between(dataNascimento, LocalDate.now()).getYears();
 		}
 		return idade;
 	}
