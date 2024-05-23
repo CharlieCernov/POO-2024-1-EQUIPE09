@@ -68,10 +68,6 @@ public class AppEventos {
         return new FrmEditarLocalDeEvento(loc);
     }
 
-    public static JFrame abrePerfil(JFrame janelaAtual) {
-        janelaAtual.setVisible(false);
-        return new FrmPerfil();
-    }
 
     public static JFrame abreCompra(JFrame janelaAtual, Evento e) {
         janelaAtual.setVisible(false);

@@ -1,5 +1,6 @@
 package model.dao;
 
+import controller.LocalDeEventoController;
 import java.util.ArrayList;
 
 import model.beans.Assento;
@@ -43,5 +44,26 @@ public class AssentoDAO {
     public static ArrayList<Assento> buscarAssentos() {
         return null;
     }
-    
+
+    public static Assento buscarAssento(int idLocal, int col, int fil) {
+        try {
+            conexao.openDB();
+            PreparedStatement pstmt = conexao.con.prepareStatement("select * from assento where "
+                    + "id_localdeevento = ? and coluna = ? and fileira = ?");
+            pstmt.setInt(1, idLocal);
+            pstmt.setInt(2, col);
+            pstmt.setInt(3, fil);
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            Assento a = new Assento(null, rs.getInt("numero"), rs.getBoolean("especial"), rs.getInt("fileira"), rs.getInt("coluna"));
+            a.setId(rs.getInt("id"));
+            int idLocalDeEvento = rs.getInt("id_localdeevento");
+            conexao.closeDB();
+            a.setLocalDeEvento(LocalDeEventoController.getLocal(idLocalDeEvento));
+            return a;
+        } catch (SQLException e) {
+            System.out.println("Falha ao buscar assento\n" + e);
+            return null;
+        }
+    }
 }

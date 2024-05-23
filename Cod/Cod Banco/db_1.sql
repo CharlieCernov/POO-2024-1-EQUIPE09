@@ -118,31 +118,7 @@ values (
         0,
         0
     );
--- Cadastro de assento
-insert into
-    assento (
-        numero,
-        coluna,
-        fileira,
-        especial,
-        id_localdeevento
-    )
-values (1, 1, 1, 0, 1),
-    (2, 1, 2, 0, 1),
-    (3, 1, 3, 0, 1),
-    (4, 1, 4, 0, 1),
-    (5, 2, 1, 0, 1),
-    (6, 2, 2, 0, 1),
-    (7, 2, 3, 0, 1),
-    (8, 2, 4, 0, 1),
-    (9, 3, 1, 0, 1),
-    (10, 3, 2, 0, 1),
-    (11, 3, 3, 0, 1),
-    (12, 3, 4, 0, 1),
-    (13, 4, 1, 0, 1),
-    (14, 4, 2, 0, 1),
-    (15, 4, 3, 0, 1),
-    (16, 4, 4, 0, 1);
+
 
 -- Cadastro de usuário
 
@@ -219,16 +195,6 @@ values (
         5.00,
         1
     );
--- cadastro de ingressos
-insert into ingresso (comprado, id_evento) values (0, 1);
 
-insert into
-    ingresso (
-        comprado,
-        id_evento,
-        id_assento
-    )
-values (0, 2, 5),
-    (1, 2, 6),
-    (1, 2, 7),
-    (1, 2, 8);
+select * from assento;
+select * from ingresso;

@@ -15,24 +15,22 @@ public class IngressoDAO {
     public static boolean cadastrarIngressoSemAssento(Ingresso ingresso) {
         try {
             conexao.openDB();
-            PreparedStatement pstmt = conexao.con.prepareStatement("insert into ingresso (comprado, id_evento) values (0, ?)");
+            PreparedStatement pstmt = conexao.con.prepareStatement("insert into ingresso (comprado, id_evento) values (1, ?)");
             pstmt.setInt(1, ingresso.getEvento().getEId());
-
             pstmt.executeUpdate();
             conexao.closeDB();
-            return true;
         } catch (SQLException e) {
             System.out.println("Falha ao inserir ingresso\n" + e);
             return false;
         }
-        
+        return true;
     }
-    public static boolean cadastrarIngressoComAssento(Ingresso ingresso, int idAssento) {
+    public static boolean cadastrarIngressoComAssento(Ingresso ingresso) {
         try {
             conexao.openDB();
-            PreparedStatement pstmt = conexao.con.prepareStatement("insert into ingresso (comprado, id_evento, id_assento) values (0, ?, ?)");
+            PreparedStatement pstmt = conexao.con.prepareStatement("insert into ingresso (comprado, id_evento, id_assento) values (1, ?, ?)");
             pstmt.setInt(1, ingresso.getEvento().getEId());
-            pstmt.setInt(2, idAssento);
+            pstmt.setInt(2, ingresso.getAssento().getId());
             pstmt.executeUpdate();
             conexao.closeDB();
         } catch (SQLException e) {

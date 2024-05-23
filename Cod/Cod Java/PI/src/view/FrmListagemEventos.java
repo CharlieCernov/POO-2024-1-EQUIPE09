@@ -14,7 +14,7 @@ public class FrmListagemEventos extends JFrame implements ActionListener {
 
     private JPanel panelPrincipal, panelTop;
     private JScrollPane scroll;
-    private JButton btnVoltar, btnPerfil;
+    private JButton btnVoltar;
     private Container c;
     private Dimension screen;
 
@@ -25,13 +25,11 @@ public class FrmListagemEventos extends JFrame implements ActionListener {
         carregarEventos();
         
         btnVoltar = criarButton("Voltar");
-        btnPerfil = criarButton("Perfil");
         panelTop = criarPanel();
         panelTop.setLayout(new BorderLayout());
         panelTop.setSize(new Dimension(vw(0.9), vh(0.10)));
         panelTop.setMaximumSize(new Dimension(vw(0.9), vh(0.10)));
         panelTop.add(btnVoltar, BorderLayout.WEST);
-        panelTop.add(btnPerfil, BorderLayout.EAST);
         add(panelTop);
         scroll = criarScrollPane(panelPrincipal);
 
@@ -162,9 +160,6 @@ public class FrmListagemEventos extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnVoltar) {
             AppEventos.abreLogin(this, "Cliente");
-        }
-        if (e.getSource() == btnPerfil) {
-            AppEventos.abrePerfil(this);
         }
     }
 }

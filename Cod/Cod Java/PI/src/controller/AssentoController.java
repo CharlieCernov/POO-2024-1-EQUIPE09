@@ -5,8 +5,9 @@ import model.dao.*;
 
 public class AssentoController {
 
-    static Assento getAssento(int id, int col, int fil) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    static Assento getAssento(int idLoc, int col, int fil) {
+        
+         return AssentoDAO.buscarAssento(idLoc, col, fil);
     }
 
     public AssentoController() {
