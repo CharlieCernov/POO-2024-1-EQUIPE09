@@ -195,6 +195,3 @@ values (
         5.00,
         1
     );
-
-select * from assento;
-select * from ingresso;

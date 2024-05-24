@@ -72,11 +72,11 @@ public class FrmCompra extends JFrame implements ActionListener {
 
                 if (AssentoController.inserirAssento(fil, col, evento.getId())
                         && IngressoController.inserirIngressoComAssento(evento, col, fil)) {
-                    JOptionPane.showMessageDialog(null, "Pagamento Confirmado");
+                    JOptionPane.showMessageDialog(null, "Pagamento Confirmado, seu ingresso chegará em seu E-mail");
                 }
             } else {
                 if (IngressoController.inserirIngressoSemAssento(evento)) {
-                    JOptionPane.showMessageDialog(null, "Pagamento Confirmado");
+                    JOptionPane.showMessageDialog(null, "Pagamento Confirmado, seu ingresso chegará em seu E-mail");
                 }
             }
             AppEventos.abreEventos(this);

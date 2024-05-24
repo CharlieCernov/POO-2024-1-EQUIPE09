@@ -138,7 +138,7 @@ public class FrmLogin extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnExit) {
-            System.exit(0);
+            AppEventos.abreInicio(this);
         }
         if (e.getSource() == btnLogIn) {
             String email = txtMail.getText();
