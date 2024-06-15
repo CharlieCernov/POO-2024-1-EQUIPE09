@@ -1,1 +1,1 @@
-<h1>Academic activity</h1>
+<h1>Academic Activity</h1>
