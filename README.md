@@ -1,2 +1,1 @@
-<h1>Academic Activity</h1>
-<h2>Integrator Project 3rd semester</h2>
+<h1>Academic Activity</h1><br><h2>Integrator Project 3rd semester</h2>
